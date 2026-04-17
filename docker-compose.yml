@@ -1,0 +1,75 @@
+services:
+
+  ai-gateway:
+    build: ./services/ai-gateway
+    container_name: ai-gateway
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - ollama
+      - qdrant
+      - embedding
+      - rag-engine
+    env_file: .env
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:${OLLAMA_VERSION}
+    container_name: ollama
+    ports:
+      - "127.0.0.1:11434:11434" 
+    volumes:
+      - ollama:/root/.ollama
+    entrypoint: /bin/sh -c "ollama serve & sleep 10 && ollama pull ${OLLAMA_MODEL_QA} && wait"
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:${QDRANT_VERSION}
+    container_name: qdrant
+    ports:
+      - "127.0.0.1:6333:6333"
+      - "127.0.0.1:6334:6334"
+    volumes:
+      - ./deploy/qdrant_storage:/qdrant/storage
+    restart: unless-stopped
+
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:${OPENWEBUI_VERSION}
+    container_name: openwebui
+    ports:
+      - "127.0.0.1:3000:8080"
+    env_file: .env
+    volumes:
+      - openwebui:/app/backend/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
+  
+  embedding:
+    build: ./services/embedding
+    container_name: embedding
+    ports: 
+      - "127.0.0.1:9001:9001"
+    env_file: .env
+    restart: unless-stopped
+    volumes:
+      - ./apps/database:/apps/database
+
+  rag-engine:
+    build: 
+      context: .
+      dockerfile: ./apps/qa/Dockerfile
+    container_name: rag-engine
+    ports:
+      - "127.0.0.1:9000:9000"
+    env_file: .env
+    volumes:
+      - ./apps/database:/apps/database
+    depends_on:
+      - qdrant
+      - embedding
+    restart: unless-stopped
+
+volumes:
+  ollama:
+  openwebui:

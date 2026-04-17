@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+
+# env
+.env
+
+# logs
+*.log
+logs/
+
+# database
+*.db
+*.sqlite
+*.sqlite3
+
+# qdrant / vector storage
+deploy/qdrant_storage/
+
+# models / embeddings
+*.pt
+*.bin
+*.onnx
+
+# data / temp
+data/
+tmp/
+*.jsonl
+
+# rust
+target/
+
+# IDE
+.vscode/
+.idea/
+
+# misc
+*.swp
