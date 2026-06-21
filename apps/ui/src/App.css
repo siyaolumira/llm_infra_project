@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #065279;
+  color: #fffbf0;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top navigation */
+
+.header {
+  height: 52px;
+  border-bottom: 1px solid #1f6f95;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  background: #043d5d;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.status {
+  margin-left: auto;
+  color: #b8d6e8;
+  font-size: 13px;
+}
+
+/* Main layout */
+
+.main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.chatPanel {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #1f6f95;
+}
+
+.logPanel {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Panel headers */
+
+.panelTitle {
+  height: 42px;
+  border-bottom: 1px solid #1f6f95;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 14px;
+  color: #fffbf0;
+  background: #177cb0;
+}
+
+/* Chat area */
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+}
+
+.empty {
+  color: #b8d6e8;
+  font-size: 14px;
+}
+
+.message {
+  margin-bottom: 18px;
+}
+
+.role {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #b8d6e8;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+}
+
+.bubble {
+  background: #0b3f5c;
+  border: 1px solid #277da1;
+  border-radius: 12px;
+  padding: 12px 14px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  color: #fffbf0;
+}
+
+.message.user .bubble {
+  background: #156a99;
+  border-color: #48a6d1;
+}
+
+.muted {
+  color: #b8d6e8;
+}
+
+/* Input area */
+
+.inputBar {
+  border-top: 1px solid #1f6f95;
+  padding: 14px;
+  display: flex;
+  gap: 10px;
+  background: #043d5d;
+}
+
+textarea {
+  flex: 1;
+  min-height: 52px;
+  max-height: 140px;
+  resize: vertical;
+  border-radius: 10px;
+  border: 1px solid #277da1;
+  background: #0b3f5c;
+  color: #fffbf0;
+  padding: 12px;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+textarea::placeholder {
+  color: #9fc8dd;
+}
+
+textarea:focus {
+  border-color: #48a6d1;
+}
+
+button {
+  width: 92px;
+  border: none;
+  border-radius: 10px;
+  background: #fffbf0;
+  color: #064c72;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Docker log area */
+
+.logs {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  background: #032b42;
+}
+
+.log {
+  color: #d9edf7;
+  margin-bottom: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.log.error {
+  color: #ffb4b4;
+}
+
+.log.ui {
+  color: #8fd3f4;
+}
+
+.time {
+  color: #8fb9cf;
+}
+
+.level {
+  color: #b8d6e8;
+}
