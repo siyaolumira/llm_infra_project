@@ -53,8 +53,7 @@ app.get("/api/logs", (req, res) => {
   const logs = spawn("docker", [
     "logs",
     "-f",
-    "--tail",
-    "50",
+    "--tail=0",
     DOCKER_CONTAINER,
   ]);
 
