@@ -2,6 +2,14 @@
 
 A modular local AI infrastructure platform built with React, Rust, Python, Qdrant, Ollama, and Retrieval-Augmented Generation (RAG).
 
+📖 This repository accompanies my Medium series documenting the project's evolution and the design decisions behind it.
+
+- **Part 1 – [Beyond the API: Why I Built My Own Local-First AI System](https://medium.com/@siyao.mira.lu/beyond-the-api-why-i-built-my-own-local-first-ai-system-204417c8ea27)**
+
+- **Part 2 – [When Context Stops Living in Prompts](https://medium.com/@siyao.mira.lu/when-context-stops-living-in-prompts-604e9fc11eff)**
+
+- **Part 3 – [Inside My AI Platform: Architecture, Trade-offs, and Design Decisions](https://medium.com/@siyao.mira.lu/inside-my-local-ai-platform-architecture-trade-offs-and-design-decisions-12f7ba455b40)**
+
 ---
 
 ## 🤔 Why This Project
