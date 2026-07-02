@@ -21,7 +21,7 @@ The goals are to:
 
 High-level architecture of the platform, showing the query pipeline and knowledge ingestion pipeline.
 
-<img width="11688" height="9960" alt="AI Platform Project" src="https://github.com/user-attachments/assets/4fe15756-c956-43f2-98dd-6033f94927f0" />
+<img width="13704" height="9961" alt="AI Platform Project_github" src="https://github.com/user-attachments/assets/217521fe-41c7-487a-84aa-066378d1f64b" />
 
 ---
 
